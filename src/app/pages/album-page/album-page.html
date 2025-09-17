@@ -1,0 +1,138 @@
+<!-- HEADER: claro, sticky, con CTA -->
+<header class="sticky-top">
+  <nav class="navbar navbar-expand-lg bg-white border-bottom shadow-sm">
+    <div class="container py-1">
+      <a class="navbar-brand d-flex align-items-center" href="#">
+        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22"
+             class="me-2 text-primary" viewBox="0 0 16 16" fill="currentColor"
+             role="img" aria-label="Camera">
+          <path d="M10.5 2a.5.5 0 0 1 .5.5V3h1.5A1.5 1.5 0 0 1 14 4.5v7A1.5 1.5 0 0 1 12.5 13h-9A1.5 1.5 0 0 1 2 11.5v-7A1.5 1.5 0 0 1 3.5 3H5v-.5a.5.5 0 0 1 .5-.5h5ZM8 5.5A3.5 3.5 0 1 0 8 12a3.5 3.5 0 0 0 0-6.5Zm0 1A2.5 2.5 0 1 1 8 11a2.5 2.5 0 0 1 0-5.5Z"/>
+        </svg>
+        <strong class="fw-semibold">Mi Album</strong>
+      </a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+              data-bs-target="#navbarMain" aria-controls="navbarMain"
+              aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div id="navbarMain" class="collapse navbar-collapse">
+        <ul class="navbar-nav ms-auto align-items-lg-center">
+          <li class="nav-item"><a class="nav-link active" aria-current="page" href="#">Inicio</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Galería</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Acerca de</a></li>
+        </ul>
+        <div class="d-flex ms-lg-3 mt-2 mt-lg-0">
+          <a class="btn btn-primary rounded-pill px-3" href="#">Subir fotos</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<main>
+
+  <!-- HERO: fondo en gradiente, texto centrado, CTA dobles -->
+  <section class="hero-modern position-relative overflow-hidden">
+    <div class="container position-relative">
+      <div class="row justify-content-center text-center py-5 py-lg-6">
+        <div class="col-12 col-lg-8">
+          <span class="badge bg-primary-subtle text-primary rounded-pill mb-3 px-3 py-2">
+            Nuevo • 2025
+          </span>
+          <h1 class="display-5 fw-semibold mb-3">Tu álbum, con estilo.</h1>
+          <p class="lead text-body-secondary mb-4">
+            Sube, organiza y comparte tus mejores momentos con un diseño limpio y adaptable.
+          </p>
+          <div class="d-flex gap-2 justify-content-center">
+            <a href="#" class="btn btn-primary btn-lg rounded-pill px-4">Comenzar</a>
+            <a href="#" class="btn btn-outline-secondary btn-lg rounded-pill px-4">Ver ejemplo</a>
+          </div>
+          <p class="text-body-tertiary mt-3 small">Sin tarjetas de crédito. Cancela cuando quieras.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ondas decorativas -->
+    <div class="hero-shape-1"></div>
+    <div class="hero-shape-2"></div>
+  </section>
+
+  <!-- GRID: cards con hover y ratio uniforme -->
+  <section class="py-5 bg-body">
+    <div class="container">
+      <div class="d-flex align-items-end justify-content-between mb-3">
+        <div>
+          <h2 class="h4 mb-1">Tu galería</h2>
+          <p class="text-body-secondary mb-0">Explora, edita y comparte.</p>
+        </div>
+        <div class="d-none d-md-flex gap-2">
+          <button class="btn btn-outline-secondary btn-sm">Más recientes</button>
+          <button class="btn btn-outline-secondary btn-sm">Populares</button>
+        </div>
+      </div>
+
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
+        <div class="col" *ngFor="let c of cards">
+          <div class="card card-zoom h-100 border-0 shadow-sm rounded-4 overflow-hidden">
+            <!-- Reutilizas tu componente pero con contenedor decorado -->
+            <app-album-card
+              [text]="c.text"
+              [time]="c.time"
+              [imageUrl]="c.imageUrl">
+            </app-album-card>
+          </div>
+        </div>
+      </div>
+
+      <div class="text-center mt-4">
+        <a href="#" class="btn btn-outline-primary rounded-pill px-4">Cargar más</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- FOOTER: limpio, columnas pequeñas -->
+<footer class="border-top bg-white">
+  <div class="container py-5">
+    <div class="row g-4">
+      <div class="col-12 col-md">
+        <a class="navbar-brand d-inline-flex align-items-center mb-2" href="#">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+               class="me-2 text-primary" viewBox="0 0 16 16" fill="currentColor">
+            <path d="M10.5 2a.5.5 0 0 1 .5.5V3h1.5A1.5 1.5 0 0 1 14 4.5v7A1.5 1.5 0 0 1 12.5 13h-9A1.5 1.5 0 0 1 2 11.5v-7A1.5 1.5 0 0 1 3.5 3H5v-.5a.5.5 0 0 1 .5-.5h5Z"/>
+          </svg>
+          <strong>Mi Album</strong>
+        </a>
+        <p class="text-body-secondary small mb-0">
+          © {{ currentYear }}. Hecho con Bootstrap y Angular.
+        </p>
+      </div>
+      <div class="col-6 col-md">
+        <h6 class="fw-semibold">Producto</h6>
+        <ul class="list-unstyled text-body-secondary">
+          <li><a class="link-body-emphasis text-decoration-none" href="#">Características</a></li>
+          <li><a class="link-body-emphasis text-decoration-none" href="#">Precios</a></li>
+          <li><a class="link-body-emphasis text-decoration-none" href="#">Novedades</a></li>
+        </ul>
+      </div>
+      <div class="col-6 col-md">
+        <h6 class="fw-semibold">Compañía</h6>
+        <ul class="list-unstyled text-body-secondary">
+          <li><a class="link-body-emphasis text-decoration-none" href="#">Sobre nosotros</a></li>
+          <li><a class="link-body-emphasis text-decoration-none" href="#">Contacto</a></li>
+          <li><a class="link-body-emphasis text-decoration-none" href="#">Blog</a></li>
+        </ul>
+      </div>
+      <div class="col-12 col-md">
+        <h6 class="fw-semibold">Legal</h6>
+        <ul class="list-unstyled text-body-secondary">
+          <li><a class="link-body-emphasis text-decoration-none" href="#">Privacidad</a></li>
+          <li><a class="link-body-emphasis text-decoration-none" href="#">Términos</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>

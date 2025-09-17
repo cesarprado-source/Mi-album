@@ -1,0 +1,36 @@
+
+.hero-modern {
+  --grad-1: 255, 255, 255;
+  --grad-2: 240, 248, 255; 
+  background: radial-gradient(1200px 600px at 10% 10%, rgba(var(--grad-2), .7), transparent 60%),
+              radial-gradient(900px 500px at 90% 10%, rgba(99, 102, 241, .08), transparent 55%),
+              linear-gradient(180deg, rgba(var(--grad-1),1) 0%, rgba(248,249,250,1) 100%);
+}
+.hero-modern .badge { backdrop-filter: saturate(1.2) blur(4px); }
+
+.hero-shape-1, .hero-shape-2 {
+  content: "";
+  position: absolute;
+  inset: auto auto -80px -80px;
+  width: 280px; height: 280px;
+  background: radial-gradient(circle at 30% 30%, rgba(99,102,241,.25), transparent 60%);
+  filter: blur(25px);
+  pointer-events: none;
+}
+.hero-shape-2 {
+  inset: auto -80px -60px auto;
+  background: radial-gradient(circle at 70% 30%, rgba(16,185,129,.2), transparent 60%);
+}
+
+
+.card-zoom { transition: transform .25s ease, box-shadow .25s ease; }
+.card-zoom:hover { transform: translateY(-4px); box-shadow: 0 1rem 2rem rgba(0,0,0,.08) !important; }
+
+
+:host ::ng-deep .card > img.card-img-top {
+  border-top-left-radius: 1rem !important;
+  border-top-right-radius: 1rem !important;
+}
+
+
+.py-lg-6 { padding-top: 5rem !important; padding-bottom: 5rem !important; }
